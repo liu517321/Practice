@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        int num3 = sc.nextInt();
+        int num4 = sc.nextInt();
+
+        int A = (num1 + num3) / 2;
+        int B = A - num1;
+        int C = B - num2;
+
+        if (B + C == num4) {
+            System.out.println(A + " " + B + " " + C);
+            return;
+        }
+        System.out.println("No");
+
+    }
+}
