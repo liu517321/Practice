@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class SolutionB {
+
+    public static ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        ArrayList<Integer> res = new ArrayList<>();
+
+        if (input == null || input.length == 0){
+            return res;
+        }
+
+        if (k > input.length) {
+            return res;
+        }
+
+        Arrays.sort(input);
+
+        for (int i = 0; i < k; i++) {
+            res.add(input[i]);
+        }
+        return res;            
+    }
+
+    public static void main(String[] args) {
+        int k=4;
+        int []a={7,2,4,6,9,1};
+//      int []a={7,8,2};
+        ArrayList<Integer> list=GetLeastNumbers_Solution(a,k);
+        System.out.println(list);
+    }
+
+}
