@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import static java.lang.Math.abs;
+import static java.lang.Math.min;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(get(n));
+        
+    }
+    
+    private static int get(int n) {
+        int t=0,x = 0;
+        while (t>=0){
+            if (Fibonacci(t)>=n){
+                x=Fibonacci(t);
+                break;
+            }else {
+                t++;
+            }
+        }
+        int y=Fibonacci(t-1);
+        return min(abs(y-n),abs(x-n));
+    }
+    
+    private static int Fibonacci(int n){
+        if (n==0){
+            return 0;
+        }else {
+            if (n==1){
+                return 1;
+            }else {
+                return Fibonacci(n-1)+Fibonacci(n-2);
+            }
+        }
+    }
+
+}
