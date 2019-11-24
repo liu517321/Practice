@@ -1,0 +1,38 @@
+/**
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+    public TreeNode(int val) {
+        this.val = val;
+    }
+}
+*/
+public class Solution {
+    public void Mirror(TreeNode root) {
+        //当传入内容为空则结束
+        if(root==null)
+        {
+            return;
+        }
+        //只有它的两个子节点同时为空则不进行换位，如果有一个为空也进行换位
+        if(root.left==null&&root.right==null)
+        {
+            return;
+        }
+        //左右换位操作
+        TreeNode temp=root.left;
+        root.left=root.right;
+        root.right=temp;
+        //左节点作为新的根节点进行递归
+        if(root.left!=null)
+        {
+            Mirror(root.left);
+        }
+        //右节点作为新的根节点进行递归
+        if(root.right!=null)
+        {
+            Mirror(root.right);
+        }
+    }
+}
