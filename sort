@@ -1,0 +1,59 @@
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int sort = sc.nextInt();
+        String name[] = new String[m];
+        int score[] = new int[m];
+        for (int i = 0; i < n; i++) {
+            name[i] = sc.next();
+            score[i] = sc.nextInt();
+        }
+        if (sort == 1) { // 升序
+            for (int i = 0; i < n; i++) {   //升序冒泡排序
+                for (int k = i + 1; k < n; k++) {
+                    if (score[i] > score[k]) {
+                        int t = score[i];
+                        score[i] = score[k];
+                        score[k] = t;
+                        String str = "";
+                        str = name[i];
+                        name[i] = name[k];
+                        name[k] = str;
+                    }
+                }
+            }
+        }
+        else if (sort == 0) { // 降序
+			for (int i = 0; i < n; i++) {    //降序冒泡排序
+				for (int k = i + 1; k < n; k++) {
+					if (score[i] < score[k]) {
+						int t = score[i];
+						score[i] = score[k];
+						score[k] = t;
+						String str = "";
+						str = name[i];
+						name[i] = name[k];
+						name[k] = str;
+					}
+				}
+			}
+		}
+		print(name, score);
+	}
+
+    private static void print(String[] name, int[] score) { 
+        for (int i = 0; i < name.length; i++) {
+            if (i == name.length - 1) {
+                System.out.print(name[i] + " " + score[i]);
+                break;
+            }
+            System.out.println(name[i] + " " + score[i]);
+        }
+     }
+
+}
