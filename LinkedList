@@ -1,0 +1,48 @@
+import java.util.*;
+
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Partition {
+    public ListNode partition(ListNode pHead, int x) {
+        // write code here
+        ListNode sHead = null;
+        ListNode sEnd = null;
+        ListNode bHead = null;
+        ListNode bEnd = null;
+
+        for (ListNode cur = pHead; cur != null; cur = cur.next) {
+            if (cur.val < x) {
+                if (sHead == null) {
+                    sHead = cur;
+                } else {
+                    sEnd.next = cur;
+                }
+                sEnd = cur;
+            } else {
+                if (bHead == null) {
+                    bHead = cur;
+                } else {
+                    bEnd.next = cur;
+                }
+                bEnd = cur;
+            }
+        }
+
+        if (sEnd == null) {
+            return bHead;
+        }
+
+        sEnd.next = bHead;
+        if (bEnd != null) {
+            bEnd.next = null;
+        }
+        return sHead;
+    }
+}
