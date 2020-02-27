@@ -1,0 +1,13 @@
+class Solution {
+    public int[] fraction(int[] cont) {
+        return recursive(cont, 0);
+    }
+     private int[] recursive(int[] count, int index) {
+        if (index == count.length - 1) {
+            return new int[]{count[index], 1};
+        }
+
+        int[] nextRes = recursive(count, index+1);
+        return new int[]{count[index] * nextRes[0] + nextRes[1], nextRes[0]};
+     }
+}
